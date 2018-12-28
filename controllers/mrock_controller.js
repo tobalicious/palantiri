@@ -1,14 +1,14 @@
-const wip_palantir = require('../palantiri/wip_palantir');
+const mrock_palantir = require('../palantiri/mrock_palantir');
 
 module.exports = {
-  async getWIP(req, res, next) {
+  async getMrock(req, res) {
     const params = req.body;
 
     if (params.hasOwnProperty('username')) {
       //res.status(202);
       //res.send({ test: 'plz'});
       console.log(params.username);
-      const profileInfo = await wip_palantir.getProfileInfo(params.username);
+      const profileInfo = await mrock_palantir.getProfileInfo(params.username);
 
       res.send({profileInfo: profileInfo});
     } else {
