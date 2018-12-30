@@ -45,6 +45,8 @@ module.exports = {
       products: products
     };
 
+    browser.close();
+
     return profileInfo;
   }
 }
