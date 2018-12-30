@@ -20,10 +20,15 @@ module.exports = {
     // get profile name
     const profileName = $('.profile-text > .name', html).text();
 
+    const socialURLs = [];
+    $('.profile-links > a', html).each(function(i, elem) {
+      socialURLs.push($(this).attr('href'));
+    });
+
     const products = [];
     // sort each product, gather info
     $('.product', html).each(function(i, elem) {
-      let productLink = $('a', elem).attr('href'); // gets link to product
+      let productURL = $('a', elem).attr('href'); // gets link to product
       let productName = $('a > .name', elem).text().split('  ')[0]; // otherwise includes span with votes in it
       let productImageSrc = $('a > .name > .thumbnail', elem).attr('src'); // gets link to product profile image
       let productTagline = $('.tagline', elem).text(); // gets description of product
@@ -38,10 +43,10 @@ module.exports = {
       products.push(productInfo);
     });
 
-    const profileInfo = {
+    let profileInfo = {
       profileName: profileName,
       profileImageSrc: profileImageSrc,
-      socialURLs: null,
+      socialURLs: socialURLs,
       products: products
     };
 
