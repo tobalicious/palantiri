@@ -1,5 +1,4 @@
 const puppeteer = require('puppeteer');
-const rp = require('request-promise');
 const $ = require('cheerio');
 
 module.exports = {
@@ -30,8 +29,8 @@ module.exports = {
       let productTagline = $('.tagline', elem).text(); // gets description of product
 
       let productInfo = {
-        productLink: productLink,
         productName: productName,
+        productURL: productURL,
         productImageSrc: productImageSrc,
         productTagline: productTagline
       };
@@ -42,6 +41,7 @@ module.exports = {
     const profileInfo = {
       profileName: profileName,
       profileImageSrc: profileImageSrc,
+      socialURLs: null,
       products: products
     };
 
