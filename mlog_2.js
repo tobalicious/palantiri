@@ -74,7 +74,7 @@ async function test(url) {
     products: products
   }
 
-  browser.close();
+  await browser.close();
 }
 
 test(url);
